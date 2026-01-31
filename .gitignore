@@ -40,8 +40,10 @@ id_ed25519*
 *.ppk
 config.ini
 
-# Kiro
-.kiro/
+# Kiro (keep specs, exclude other .kiro files)
+.kiro/settings/
+.kiro/hooks/
+.kiro/cache/
 
 # Node modules (if any)
 node_modules/
