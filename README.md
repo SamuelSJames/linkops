@@ -2,9 +2,30 @@
 
 **LinkOps** is a secure SSH orchestration and bash script execution platform for SnS Network Solutions. It provides a modern web interface for managing infrastructure, executing scripts across multiple machines, and monitoring operations in real-time.
 
-![LinkOps Version](https://img.shields.io/badge/version-1.0.0-blue)
-![Python Version](https://img.shields.io/badge/python-3.11+-green)
-![License](https://img.shields.io/badge/license-Proprietary-red)
+[![LinkOps Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/SamuelSJames/linkops)
+[![Python Version](https://img.shields.io/badge/python-3.11+-green)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-Proprietary-red)](LICENSE)
+[![GitHub Repo](https://img.shields.io/badge/github-SamuelSJames%2Flinkops-blue?logo=github)](https://github.com/SamuelSJames/linkops)
+[![Status](https://img.shields.io/badge/status-Phase%201%20Complete-success)](https://github.com/SamuelSJames/linkops)
+
+**🔗 Repository:** [github.com/SamuelSJames/linkops](https://github.com/SamuelSJames/linkops)
+
+---
+
+## 📊 Project Status
+
+| Component | Status | Progress |
+|-----------|--------|----------|
+| Frontend | ✅ Complete | 100% |
+| Backend Specification | ✅ Complete | 100% |
+| Phase 1 Onboarding | 🔄 In Progress | 95% |
+| Backend API | ⏳ Pending | 0% |
+| Deployment Scripts | ✅ Complete | 100% |
+| Documentation | ✅ Complete | 100% |
+
+**Current Focus:** Completing Phase 1 onboarding flow (user registration, Git setup, machine enrollment)
+
+---
 
 ## Features
 
@@ -157,7 +178,7 @@ linkops/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/sns-network/linkops.git
+git clone https://github.com/SamuelSJames/linkops.git
 cd linkops
 
 # 2. Run installation script
