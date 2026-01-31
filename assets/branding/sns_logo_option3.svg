@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <pattern id="grid3" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#1a2a3a" stroke-width="1"/>
+    </pattern>
+    <pattern id="gridSmall3" width="5" height="5" patternUnits="userSpaceOnUse">
+      <path d="M 5 0 L 0 0 0 5" fill="none" stroke="#0d1a24" stroke-width="0.5"/>
+    </pattern>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00aaff"/>
+      <stop offset="50%" style="stop-color:#0088cc"/>
+      <stop offset="100%" style="stop-color:#00aaff"/>
+    </linearGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background layers -->
+  <rect width="400" height="200" fill="#0a1218"/>
+  <rect width="400" height="200" fill="url(#gridSmall3)"/>
+  <rect width="400" height="200" fill="url(#grid3)"/>
+  
+  <!-- Network connection lines -->
+  <g stroke="#00aaff" stroke-width="1" opacity="0.3">
+    <line x1="50" y1="50" x2="100" y2="75"/>
+    <line x1="100" y1="75" x2="75" y2="125"/>
+    <line x1="300" y1="50" x2="350" y2="75"/>
+    <line x1="350" y1="75" x2="325" y2="150"/>
+    <line x1="50" y1="150" x2="75" y2="125"/>
+  </g>
+  
+  <!-- Network nodes -->
+  <g filter="url(#glow3)">
+    <circle cx="50" cy="50" r="4" fill="#00aaff"/>
+    <circle cx="100" cy="75" r="3" fill="#00aaff"/>
+    <circle cx="75" cy="125" r="4" fill="#00aaff"/>
+    <circle cx="50" cy="150" r="3" fill="#00aaff"/>
+    <circle cx="300" cy="50" r="3" fill="#00aaff"/>
+    <circle cx="350" cy="75" r="4" fill="#00aaff"/>
+    <circle cx="325" cy="150" r="3" fill="#00aaff"/>
+  </g>
+  
+  <!-- Main text -->
+  <text x="200" y="90" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="52" font-weight="bold" fill="url(#blueGrad)" filter="url(#glow3)">SnS</text>
+  
+  <!-- Subtitle -->
+  <text x="200" y="130" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="22" fill="#557788" letter-spacing="4">NETLABS<tspan fill="#00aaff">!</tspan></text>
+  
+  <!-- Corner brackets -->
+  <g stroke="#00aaff" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M 15 35 L 15 15 L 35 15"/>
+    <path d="M 365 15 L 385 15 L 385 35"/>
+    <path d="M 385 165 L 385 185 L 365 185"/>
+    <path d="M 35 185 L 15 185 L 15 165"/>
+  </g>
+</svg>

@@ -1,0 +1,219 @@
+# LinkOps Machine Inventory
+# This file defines all machines that can be managed by LinkOps
+
+links:
+  vps-linode-01:
+    type: VPS
+    provider: Linode
+    host: 10.0.1.10
+    port: 22
+    user: root
+    tags:
+      - prod
+      - vps
+      - web
+    enrollment:
+      required: true
+      clientId: LINKOPS-8f3a2c6d-1b7e-4c7a-9c2a-3f1a7d2c9c10
+    ssh:
+      keyRef: sns_prod_ed25519
+      proxyJump: null
+    metadata:
+      location: us-east
+      datacenter: linode-newark
+      icon: assets/logos/linode.svg
+
+  vps-racknerd-01:
+    type: VPS
+    provider: RackNerd
+    host: 10.0.1.20
+    port: 22
+    user: root
+    tags:
+      - prod
+      - vps
+      - backup
+    enrollment:
+      required: true
+      clientId: LINKOPS-7b2c1d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e
+    ssh:
+      keyRef: sns_prod_ed25519
+      proxyJump: null
+    metadata:
+      location: us-west
+      datacenter: racknerd-la
+      icon: assets/logos/racknerd.png
+
+  proxmox-cluster-01:
+    type: Proxmox
+    provider: Proxmox
+    host: 10.0.2.10
+    port: 22
+    user: root
+    tags:
+      - prod
+      - hypervisor
+      - cluster
+    enrollment:
+      required: true
+      clientId: LINKOPS-9c4d2e3f-5a6b-7c8d-9e0f-1a2b3c4d5e6f
+    ssh:
+      keyRef: sns_prod_ed25519
+      proxyJump: null
+    metadata:
+      location: on-prem
+      datacenter: office
+      icon: assets/logos/proxmox.svg
+
+  vm-ubuntu-web-01:
+    type: VM
+    provider: Ubuntu
+    host: 10.0.3.10
+    port: 22
+    user: ubuntu
+    tags:
+      - prod
+      - vm
+      - web
+      - nginx
+    enrollment:
+      required: true
+      clientId: LINKOPS-1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+    ssh:
+      keyRef: sns_prod_ed25519
+      proxyJump: proxmox-cluster-01
+    metadata:
+      parent: proxmox-cluster-01
+      os: Ubuntu 24.04
+      icon: assets/logos/ubuntu-linux.svg
+
+  vm-ubuntu-db-01:
+    type: VM
+    provider: Ubuntu
+    host: 10.0.3.20
+    port: 22
+    user: ubuntu
+    tags:
+      - prod
+      - vm
+      - database
+      - postgresql
+    enrollment:
+      required: true
+      clientId: LINKOPS-2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+    ssh:
+      keyRef: sns_prod_ed25519
+      proxyJump: proxmox-cluster-01
+    metadata:
+      parent: proxmox-cluster-01
+      os: Ubuntu 24.04
+      icon: assets/logos/ubuntu-linux.svg
+
+  vm-alpine-docker-01:
+    type: VM
+    provider: Alpine
+    host: 10.0.3.30
+    port: 22
+    user: root
+    tags:
+      - prod
+      - vm
+      - docker
+      - containers
+    enrollment:
+      required: true
+      clientId: LINKOPS-3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+    ssh:
+      keyRef: sns_prod_ed25519
+      proxyJump: proxmox-cluster-01
+    metadata:
+      parent: proxmox-cluster-01
+      os: Alpine Linux 3.19
+      icon: assets/logos/alpine-linux.svg
+
+  vm-mint-dev-01:
+    type: VM
+    provider: Linux Mint
+    host: 10.0.3.40
+    port: 22
+    user: mint
+    tags:
+      - dev
+      - vm
+      - workstation
+    enrollment:
+      required: true
+      clientId: LINKOPS-4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a
+    ssh:
+      keyRef: sns_prod_ed25519
+      proxyJump: proxmox-cluster-01
+    metadata:
+      parent: proxmox-cluster-01
+      os: Linux Mint 21
+      icon: assets/logos/linux-mint.svg
+
+  vm-docker-host-01:
+    type: VM
+    provider: Docker
+    host: 10.0.3.50
+    port: 22
+    user: docker
+    tags:
+      - prod
+      - vm
+      - docker
+      - services
+    enrollment:
+      required: true
+      clientId: LINKOPS-5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
+    ssh:
+      keyRef: sns_prod_ed25519
+      proxyJump: proxmox-cluster-01
+    metadata:
+      parent: proxmox-cluster-01
+      os: Ubuntu 24.04
+      icon: assets/logos/docker.svg
+
+  vm-nginx-proxy-01:
+    type: VM
+    provider: Nginx
+    host: 10.0.3.60
+    port: 22
+    user: nginx
+    tags:
+      - prod
+      - vm
+      - proxy
+      - nginx
+    enrollment:
+      required: true
+      clientId: LINKOPS-6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
+    ssh:
+      keyRef: sns_prod_ed25519
+      proxyJump: proxmox-cluster-01
+    metadata:
+      parent: proxmox-cluster-01
+      os: Ubuntu 24.04
+      icon: assets/logos/nginx-proxy-manager.svg
+
+  vm-gitea-01:
+    type: VM
+    provider: Gitea
+    host: 10.0.3.70
+    port: 22
+    user: git
+    tags:
+      - prod
+      - vm
+      - git
+      - scm
+    enrollment:
+      required: true
+      clientId: LINKOPS-7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+    ssh:
+      keyRef: sns_prod_ed25519
+      proxyJump: proxmox-cluster-01
+    metadata:
+      parent: proxmox-cluster-01
+      os: Ubuntu 24.04
+      icon: assets/logos/gitea.svg

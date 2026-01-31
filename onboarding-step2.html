@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkOps - Git Setup</title>
+    <link rel="stylesheet" href="css/onboarding.css">
+</head>
+<body>
+    <div class="onboarding-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-step completed">
+                <div class="step-circle">✓</div>
+                <div class="step-label">Account</div>
+            </div>
+            <div class="progress-line completed"></div>
+            <div class="progress-step active">
+                <div class="step-circle">2</div>
+                <div class="step-label">Git Setup</div>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step">
+                <div class="step-circle">3</div>
+                <div class="step-label">First Machine</div>
+            </div>
+        </div>
+
+        <!-- Onboarding Panel -->
+        <div class="onboarding-panel">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="assets/branding/linkops_gray.svg" alt="LinkOps" class="linkops-logo">
+            </div>
+
+            <!-- Form Header -->
+            <div class="form-header">
+                <h1 class="form-title">Connect Your Git Provider</h1>
+                <p class="form-subtitle">LinkOps will create and manage your configuration repository</p>
+            </div>
+
+            <!-- Git Setup Form -->
+            <form class="onboarding-form" id="gitSetupForm">
+                <!-- Git Provider -->
+                <div class="form-group">
+                    <label for="gitProvider">Git Provider *</label>
+                    <div class="custom-select-wrapper">
+                        <div class="custom-select" id="customSelect">
+                            <div class="select-trigger">
+                                <span class="select-text">Select a provider...</span>
+                                <span class="select-arrow">▼</span>
+                            </div>
+                            <div class="select-options" id="selectOptions">
+                                <div class="select-option" data-value="github" data-icon="assets/logos/github-color-svgrepo-com.svg">
+                                    <img src="assets/logos/github-color-svgrepo-com.svg" alt="GitHub" class="option-icon">
+                                    <span class="option-text">GitHub</span>
+                                </div>
+                                <div class="select-option" data-value="gitlab" data-icon="assets/logos/gitlab-svgrepo-com.svg">
+                                    <img src="assets/logos/gitlab-svgrepo-com.svg" alt="GitLab" class="option-icon">
+                                    <span class="option-text">GitLab</span>
+                                </div>
+                                <div class="select-option" data-value="gitea" data-icon="assets/logos/gitea.svg">
+                                    <img src="assets/logos/gitea.svg" alt="Gitea" class="option-icon">
+                                    <span class="option-text">Gitea</span>
+                                </div>
+                                <div class="select-option" data-value="forgejo" data-icon="assets/logos/forgejo.svg">
+                                    <img src="assets/logos/forgejo.svg" alt="Forgejo" class="option-icon">
+                                    <span class="option-text">Forgejo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="gitProvider" name="gitProvider" required>
+                    </div>
+                </div>
+
+                <!-- Provider URL -->
+                <div class="form-group" id="providerUrlGroup">
+                    <label for="providerUrl">Provider URL *</label>
+                    <input 
+                        type="url" 
+                        id="providerUrl" 
+                        name="providerUrl" 
+                        placeholder="https://github.com"
+                        required
+                    >
+                    <span class="field-hint">For self-hosted instances, enter your full URL</span>
+                </div>
+
+                <!-- Personal Access Token -->
+                <div class="form-group">
+                    <label for="accessToken">
+                        Personal Access Token *
+                        <button type="button" class="help-button" id="tokenHelpBtn">
+                            <span class="help-icon">?</span>
+                        </button>
+                    </label>
+                    <div class="password-input-wrapper">
+                        <input 
+                            type="password" 
+                            id="accessToken" 
+                            name="accessToken" 
+                            placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
+                            required
+                            autocomplete="off"
+                        >
+                        <button type="button" class="password-toggle" id="tokenToggle">
+                            <span class="eye-icon">👁</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Token Help (Collapsible) -->
+                    <div class="help-panel" id="tokenHelp" style="display: none;">
+                        <div class="help-content">
+                            <h4>Required Token Permissions:</h4>
+                            <ul class="permission-list" id="permissionList">
+                                <li><strong>GitHub:</strong> <code>repo</code> (Full control of private repositories)</li>
+                                <li><strong>GitLab:</strong> <code>api</code> (Full API access)</li>
+                                <li><strong>Gitea/Forgejo:</strong> <code>write:repository</code> (Create and write to repos)</li>
+                            </ul>
+                            <a href="#" class="help-link" id="tokenGuideLink" target="_blank">How to create a token →</a>
+                        </div>
+                    </div>
+                    <span class="field-error" id="tokenError"></span>
+                </div>
+
+                <!-- Repository Owner -->
+                <div class="form-group">
+                    <label for="repoOwner">Repository Owner *</label>
+                    <input 
+                        type="text" 
+                        id="repoOwner" 
+                        name="repoOwner" 
+                        placeholder="your-username or organization"
+                        required
+                    >
+                    <span class="field-hint">Your username or organization where the repo will be created</span>
+                    <span class="field-error" id="repoOwnerError"></span>
+                </div>
+
+                <!-- Repository Name -->
+                <div class="form-group">
+                    <label for="repoName">Repository Name *</label>
+                    <input 
+                        type="text" 
+                        id="repoName" 
+                        name="repoName" 
+                        value="linkops-config"
+                        required
+                        pattern="[a-zA-Z0-9_-]+"
+                    >
+                    <span class="field-hint">Name for your LinkOps configuration repository</span>
+                    <span class="field-error" id="repoNameError"></span>
+                </div>
+
+                <!-- Repository Visibility (Private Only) -->
+                <div class="form-group">
+                    <label>Repository Visibility</label>
+                    <div class="info-box">
+                        <div class="info-icon">🔒</div>
+                        <div class="info-content">
+                            <p><strong>Private repository only.</strong> Your configuration contains sensitive infrastructure information and will be created as a private repository.</p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="repoVisibility" value="private">
+                </div>
+
+                <!-- Test Connection Button -->
+                <button type="button" class="secondary-button" id="testConnectionBtn">
+                    <span class="button-icon">🔌</span>
+                    <span class="button-text">Test Connection</span>
+                </button>
+
+                <!-- Connection Status -->
+                <div class="connection-status" id="connectionStatus" style="display: none;">
+                    <div class="status-icon"></div>
+                    <span class="status-text"></span>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="button-group">
+                    <button type="button" class="secondary-button" id="backBtn">
+                        <span class="button-icon">←</span>
+                        <span class="button-text">Back</span>
+                    </button>
+                    <button type="submit" class="primary-button" id="nextBtn" disabled>
+                        <span class="button-text">Create Repository</span>
+                        <span class="button-icon">→</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Branding Footer -->
+        <div class="branding-footer">
+            <img src="assets/branding/sns_net_solutions_gray.svg" alt="SnS Network Solutions" class="sns-logo">
+        </div>
+    </div>
+
+    <script src="js/onboarding-step2.js"></script>
+</body>
+</html>

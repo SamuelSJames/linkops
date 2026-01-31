@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff00ff"/>
+      <stop offset="50%" style="stop-color:#aa00ff"/>
+      <stop offset="100%" style="stop-color:#ff00ff"/>
+    </linearGradient>
+    <linearGradient id="horizonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="60%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a0a2a"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="200" fill="url(#horizonGrad)"/>
+  
+  <!-- Perspective grid -->
+  <g stroke="#ff00ff" stroke-width="0.5" opacity="0.2">
+    <!-- Horizontal lines -->
+    <line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="50" y1="180" x2="350" y2="180"/>
+    <line x1="80" y1="165" x2="320" y2="165"/>
+    <line x1="100" y1="155" x2="300" y2="155"/>
+    <line x1="120" y1="148" x2="280" y2="148"/>
+    <!-- Vertical converging lines -->
+    <line x1="200" y1="120" x2="0" y2="200"/>
+    <line x1="200" y1="120" x2="50" y2="200"/>
+    <line x1="200" y1="120" x2="100" y2="200"/>
+    <line x1="200" y1="120" x2="150" y2="200"/>
+    <line x1="200" y1="120" x2="250" y2="200"/>
+    <line x1="200" y1="120" x2="300" y2="200"/>
+    <line x1="200" y1="120" x2="350" y2="200"/>
+    <line x1="200" y1="120" x2="400" y2="200"/>
+  </g>
+  
+  <!-- Scanline effect -->
+  <g stroke="#ffffff" stroke-width="1" opacity="0.03">
+    <line x1="0" y1="2" x2="400" y2="2"/>
+    <line x1="0" y1="6" x2="400" y2="6"/>
+    <line x1="0" y1="10" x2="400" y2="10"/>
+    <line x1="0" y1="14" x2="400" y2="14"/>
+    <line x1="0" y1="18" x2="400" y2="18"/>
+  </g>
+  
+  <!-- Main text -->
+  <text x="200" y="75" text-anchor="middle" font-family="'Impact', 'Arial Black', sans-serif" font-size="60" fill="url(#purpleGrad)" filter="url(#glow4)">SnS</text>
+  
+  <!-- Subtitle -->
+  <text x="200" y="110" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" fill="#666666" letter-spacing="2">// NetLabs<tspan fill="#ff00ff">!</tspan></text>
+  
+  <!-- Decorative lines -->
+  <line x1="80" y1="85" x2="130" y2="85" stroke="#ff00ff" stroke-width="2" opacity="0.5"/>
+  <line x1="270" y1="85" x2="320" y2="85" stroke="#ff00ff" stroke-width="2" opacity="0.5"/>
+</svg>

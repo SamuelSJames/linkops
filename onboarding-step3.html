@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkOps - First Machine</title>
+    <link rel="stylesheet" href="css/onboarding.css">
+</head>
+<body>
+    <div class="onboarding-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-step completed">
+                <div class="step-circle">✓</div>
+                <div class="step-label">Account</div>
+            </div>
+            <div class="progress-line completed"></div>
+            <div class="progress-step completed">
+                <div class="step-circle">✓</div>
+                <div class="step-label">Git Setup</div>
+            </div>
+            <div class="progress-line completed"></div>
+            <div class="progress-step active">
+                <div class="step-circle">3</div>
+                <div class="step-label">First Machine</div>
+            </div>
+        </div>
+
+        <!-- Onboarding Panel -->
+        <div class="onboarding-panel">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="assets/branding/linkops_gray.svg" alt="LinkOps" class="linkops-logo">
+            </div>
+
+            <!-- Form Header -->
+            <div class="form-header">
+                <h1 class="form-title">Enroll Your First Machine</h1>
+                <p class="form-subtitle">Let's add this LinkOps server as your first managed machine</p>
+            </div>
+
+            <!-- Machine Enrollment Form -->
+            <form class="onboarding-form" id="machineEnrollmentForm">
+                <!-- Info Box -->
+                <div class="info-box">
+                    <div class="info-icon">ℹ️</div>
+                    <div class="info-content">
+                        <p>We'll create a non-root SSH user and enroll this server so you can manage it through LinkOps.</p>
+                    </div>
+                </div>
+
+                <!-- Machine Name -->
+                <div class="form-group">
+                    <label for="machineName">Machine Name *</label>
+                    <input 
+                        type="text" 
+                        id="machineName" 
+                        name="machineName" 
+                        value="linkops-server"
+                        required
+                    >
+                    <span class="field-hint">Lowercase letters, numbers, dash, underscore</span>
+                    <span class="field-error" id="machineNameError"></span>
+                </div>
+
+                <!-- SSH User -->
+                <div class="form-group">
+                    <label for="sshUser">SSH User *</label>
+                    <input 
+                        type="text" 
+                        id="sshUser" 
+                        name="sshUser" 
+                        value="linkops-local"
+                        required
+                    >
+                    <span class="field-hint">Non-root user for SSH connections (will be created)</span>
+                    <span class="field-error" id="sshUserError"></span>
+                </div>
+
+                <!-- SSH Port -->
+                <div class="form-group">
+                    <label for="sshPort">SSH Port *</label>
+                    <input 
+                        type="number" 
+                        id="sshPort" 
+                        name="sshPort" 
+                        value="22"
+                        required
+                        min="1"
+                        max="65535"
+                    >
+                    <span class="field-error" id="sshPortError"></span>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea 
+                        id="description" 
+                        name="description" 
+                        rows="3"
+                        placeholder="Brief description of this machine's purpose"
+                    >LinkOps management server</textarea>
+                </div>
+
+                <!-- Tags -->
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <input 
+                        type="text" 
+                        id="tags" 
+                        name="tags" 
+                        value="prod, management, linkops"
+                        placeholder="comma, separated, tags"
+                    >
+                    <span class="field-hint">Tags for organizing and filtering machines</span>
+                </div>
+
+                <!-- Use Defaults Button -->
+                <button type="button" class="secondary-button" id="useDefaultsBtn">
+                    <span class="button-icon">⚙️</span>
+                    <span class="button-text">Use Recommended Defaults</span>
+                </button>
+
+                <!-- Enrollment Progress -->
+                <div class="enrollment-progress" id="enrollmentProgress" style="display: none;">
+                    <div class="progress-steps">
+                        <div class="progress-item" id="step1">
+                            <div class="progress-spinner"></div>
+                            <span class="progress-label">Creating SSH user...</span>
+                        </div>
+                        <div class="progress-item" id="step2">
+                            <div class="progress-spinner"></div>
+                            <span class="progress-label">Generating client ID...</span>
+                        </div>
+                        <div class="progress-item" id="step3">
+                            <div class="progress-spinner"></div>
+                            <span class="progress-label">Testing SSH connection...</span>
+                        </div>
+                        <div class="progress-item" id="step4">
+                            <div class="progress-spinner"></div>
+                            <span class="progress-label">Updating Git repository...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="button-group">
+                    <button type="button" class="secondary-button" id="backBtn">
+                        <span class="button-icon">←</span>
+                        <span class="button-text">Back</span>
+                    </button>
+                    <button type="submit" class="primary-button" id="completeBtn">
+                        <span class="button-text">Complete Setup</span>
+                        <span class="button-icon">✓</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Branding Footer -->
+        <div class="branding-footer">
+            <img src="assets/branding/sns_net_solutions_gray.svg" alt="SnS Network Solutions" class="sns-logo">
+        </div>
+    </div>
+
+    <script src="js/onboarding-step3.js"></script>
+</body>
+</html>

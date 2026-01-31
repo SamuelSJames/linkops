@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80">
+  <defs>
+    <!-- Primary gradient for S letters - warm gold/bronze -->
+    <linearGradient id="goldPrimary" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8D8A8"/>
+      <stop offset="40%" style="stop-color:#D4B86A"/>
+      <stop offset="100%" style="stop-color:#B89848"/>
+    </linearGradient>
+    
+    <!-- Subtle highlight gradient -->
+    <linearGradient id="goldHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F0E4C0"/>
+      <stop offset="50%" style="stop-color:#E0CCA0"/>
+      <stop offset="100%" style="stop-color:#F0E4C0"/>
+    </linearGradient>
+    
+    <!-- Warm glow filter -->
+    <filter id="textGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <g transform="translate(20, 15)">
+    <!-- SnS lettering -->
+    <g filter="url(#textGlow)">
+      <!-- First S - bold, prominent -->
+      <text x="0" y="42" 
+            font-family="'Segoe UI', 'SF Pro Display', -apple-system, sans-serif" 
+            font-size="52" 
+            font-weight="700"
+            fill="url(#goldPrimary)">S</text>
+      
+      <!-- n - lighter weight, slightly smaller -->
+      <text x="32" y="42" 
+            font-family="'Segoe UI', 'SF Pro Display', -apple-system, sans-serif" 
+            font-size="38" 
+            font-weight="400"
+            fill="#C0A870">n</text>
+      
+      <!-- Second S - matches first -->
+      <text x="56" y="42" 
+            font-family="'Segoe UI', 'SF Pro Display', -apple-system, sans-serif" 
+            font-size="52" 
+            font-weight="700"
+            fill="url(#goldPrimary)">S</text>
+    </g>
+    
+    <!-- Elegant separator dot -->
+    <circle cx="102" cy="32" r="3" fill="#D4B86A" opacity="0.7"/>
+    
+    <!-- "Net Solutions" - refined, spaced -->
+    <g transform="translate(115, 0)">
+      <text x="0" y="38" 
+            font-family="'Segoe UI', 'SF Pro Display', -apple-system, sans-serif" 
+            font-size="28" 
+            font-weight="600"
+            letter-spacing="1"
+            fill="url(#goldHighlight)">Net</text>
+      
+      <text x="58" y="38" 
+            font-family="'Segoe UI', 'SF Pro Display', -apple-system, sans-serif" 
+            font-size="28" 
+            font-weight="300"
+            letter-spacing="1.5"
+            fill="#C8B080">Solutions</text>
+    </g>
+    
+    <!-- Subtle underline accent -->
+    <line x1="0" y1="54" x2="88" y2="54" 
+          stroke="url(#goldPrimary)" 
+          stroke-width="2" 
+          stroke-linecap="round"
+          opacity="0.5"/>
+    
+    <line x1="115" y1="54" x2="295" y2="54" 
+          stroke="#D4B86A" 
+          stroke-width="1" 
+          stroke-linecap="round"
+          opacity="0.25"/>
+  </g>
+</svg>

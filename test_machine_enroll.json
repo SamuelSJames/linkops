@@ -1,0 +1,7 @@
+{
+  "machineName": "linkops-server",
+  "sshUser": "linkops-local",
+  "sshPort": 22,
+  "description": "LinkOps management server",
+  "tags": "prod, management, linkops"
+}

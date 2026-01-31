@@ -1,0 +1,241 @@
+# LinkOps Script Catalog
+# This file defines all available scripts that can be executed on machines
+
+scripts:
+  baseline:
+    name: Baseline Configuration
+    emoji: "⚙️"
+    description: Apply baseline security and configuration settings
+    path: scripts/baseline.sh
+    flags:
+      - --skip-firewall
+      - --skip-ssh
+      - --skip-users
+      - --dry-run
+    estimatedDuration: 180
+    tags:
+      - security
+      - configuration
+      - baseline
+
+  install_nano:
+    name: Install Nano Editor
+    emoji: "📝"
+    description: Install nano text editor
+    path: scripts/install_nano.sh
+    flags:
+      - --version=latest
+      - --with-syntax-highlighting
+    estimatedDuration: 30
+    tags:
+      - editor
+      - tools
+
+  install_vim:
+    name: Install Vim Editor
+    emoji: "✏️"
+    description: Install vim text editor with plugins
+    path: scripts/install_vim.sh
+    flags:
+      - --version=latest
+      - --with-plugins
+      - --configure-vimrc
+    estimatedDuration: 60
+    tags:
+      - editor
+      - tools
+
+  install_docker:
+    name: Install Docker
+    emoji: "🐳"
+    description: Install Docker Engine and Docker Compose
+    path: scripts/install_docker.sh
+    flags:
+      - --version=latest
+      - --with-compose
+      - --add-user-to-group
+      - --enable-service
+    estimatedDuration: 120
+    tags:
+      - docker
+      - containers
+      - infrastructure
+
+  install_nginx:
+    name: Install Nginx
+    emoji: "🌐"
+    description: Install and configure Nginx web server
+    path: scripts/install_nginx.sh
+    flags:
+      - --version=latest
+      - --with-ssl
+      - --enable-service
+      - --configure-firewall
+    estimatedDuration: 90
+    tags:
+      - web
+      - nginx
+      - infrastructure
+
+  install_crowdsec:
+    name: Install CrowdSec
+    emoji: "🛡️"
+    description: Install and configure CrowdSec security engine
+    path: scripts/install_crowdsec.sh
+    flags:
+      - --auto-config
+      - --enable-service
+      - --start-now
+      - --install-bouncer
+    estimatedDuration: 240
+    tags:
+      - security
+      - ids
+      - crowdsec
+
+  install_wazuh:
+    name: Install Wazuh Agent
+    emoji: "🔒"
+    description: Install and configure Wazuh security agent
+    path: scripts/install_wazuh.sh
+    flags:
+      - --manager-ip=REQUIRED
+      - --auto-enroll
+      - --enable-service
+      - --start-now
+    estimatedDuration: 180
+    tags:
+      - security
+      - siem
+      - wazuh
+
+  security_audit:
+    name: Security Audit
+    emoji: "🔍"
+    description: Run comprehensive security audit and generate report
+    path: scripts/security_audit.sh
+    flags:
+      - --full-scan
+      - --check-cve
+      - --check-ports
+      - --check-users
+      - --output-format=json
+    estimatedDuration: 300
+    tags:
+      - security
+      - audit
+      - compliance
+
+  update_system:
+    name: System Update
+    emoji: "🔄"
+    description: Update system packages and apply security patches
+    path: scripts/update_system.sh
+    flags:
+      - --auto-reboot
+      - --security-only
+      - --clean-cache
+      - --dry-run
+    estimatedDuration: 600
+    tags:
+      - maintenance
+      - updates
+      - security
+
+  install_fail2ban:
+    name: Install Fail2Ban
+    emoji: "🚫"
+    description: Install and configure Fail2Ban intrusion prevention
+    path: scripts/install_fail2ban.sh
+    flags:
+      - --enable-ssh-jail
+      - --enable-nginx-jail
+      - --ban-time=3600
+      - --max-retry=5
+    estimatedDuration: 120
+    tags:
+      - security
+      - fail2ban
+      - intrusion-prevention
+
+  backup_config:
+    name: Backup Configuration
+    emoji: "💾"
+    description: Backup system configuration files
+    path: scripts/backup_config.sh
+    flags:
+      - --destination=REQUIRED
+      - --compress
+      - --encrypt
+      - --include-logs
+    estimatedDuration: 180
+    tags:
+      - backup
+      - maintenance
+
+  install_monitoring:
+    name: Install Monitoring Stack
+    emoji: "📊"
+    description: Install Prometheus node exporter and monitoring tools
+    path: scripts/install_monitoring.sh
+    flags:
+      - --with-node-exporter
+      - --with-cadvisor
+      - --enable-service
+      - --configure-firewall
+    estimatedDuration: 240
+    tags:
+      - monitoring
+      - prometheus
+      - observability
+
+  harden_ssh:
+    name: Harden SSH Configuration
+    emoji: "🔐"
+    description: Apply SSH hardening best practices
+    path: scripts/harden_ssh.sh
+    flags:
+      - --disable-password-auth
+      - --disable-root-login
+      - --change-port
+      - --enable-2fa
+      - --dry-run
+    estimatedDuration: 60
+    tags:
+      - security
+      - ssh
+      - hardening
+
+  install_firewall:
+    name: Configure Firewall
+    emoji: "🔥"
+    description: Install and configure UFW firewall
+    path: scripts/install_firewall.sh
+    flags:
+      - --allow-ssh
+      - --allow-http
+      - --allow-https
+      - --enable-logging
+      - --dry-run
+    estimatedDuration: 90
+    tags:
+      - security
+      - firewall
+      - network
+
+  cleanup_system:
+    name: System Cleanup
+    emoji: "🧹"
+    description: Clean up temporary files, logs, and unused packages
+    path: scripts/cleanup_system.sh
+    flags:
+      - --clean-logs
+      - --clean-cache
+      - --remove-old-kernels
+      - --autoremove
+      - --dry-run
+    estimatedDuration: 120
+    tags:
+      - maintenance
+      - cleanup
+      - optimization

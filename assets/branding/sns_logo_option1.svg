@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1a3a1a" stroke-width="0.5"/>
+    </pattern>
+    <linearGradient id="textGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88"/>
+      <stop offset="100%" style="stop-color:#00aa55"/>
+    </linearGradient>
+    <filter id="glow1">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="200" fill="#0a0a0a"/>
+  <rect width="400" height="200" fill="url(#grid1)"/>
+  
+  <!-- Glowing grid intersections -->
+  <g fill="#00ff88" opacity="0.3">
+    <circle cx="60" cy="40" r="2"/>
+    <circle cx="120" cy="80" r="2"/>
+    <circle cx="340" cy="60" r="2"/>
+    <circle cx="280" cy="140" r="2"/>
+    <circle cx="40" cy="160" r="2"/>
+  </g>
+  
+  <!-- Main Text -->
+  <text x="200" y="95" text-anchor="middle" font-family="'Courier New', monospace" font-size="48" font-weight="bold" fill="url(#textGrad1)" filter="url(#glow1)">SnS</text>
+  
+  <text x="200" y="135" text-anchor="middle" font-family="'Courier New', monospace" font-size="24" fill="#666666">NetLabs<tspan fill="#00ff88">!</tspan></text>
+  
+  <!-- Decorative brackets -->
+  <text x="45" y="110" font-family="'Courier New', monospace" font-size="60" fill="#333333">{</text>
+  <text x="335" y="110" font-family="'Courier New', monospace" font-size="60" fill="#333333">}</text>
+</svg>

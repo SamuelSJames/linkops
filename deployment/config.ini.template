@@ -1,0 +1,115 @@
+# LinkOps Backend API Configuration
+# Copy this file to /etc/linkops/config.ini and update values
+
+[api]
+# API server configuration
+host = 0.0.0.0
+port = 8000
+
+# JWT authentication
+jwt_secret = <generate-random-secret>
+jwt_algorithm = HS256
+jwt_expiration_hours = 24
+
+# CORS settings (update with your frontend domain)
+cors_origins = http://localhost,http://localhost:8080,http://your-frontend-domain.com
+
+[database]
+# SQLite database path
+path = /var/lib/linkops/linkops.db
+
+# Connection pool settings
+max_connections = 10
+timeout = 30
+
+[git]
+# Git repository configuration
+repository_url = git@github.com:your-org/linkops-config.git
+branch = main
+local_path = /var/lib/linkops/git-repo
+
+# Sync interval in minutes
+sync_interval_minutes = 15
+
+# Git SSH key (if using SSH authentication)
+ssh_key_path = /var/lib/linkops/keys/git_deploy_key
+
+[ssh]
+# SSH configuration
+keys_directory = /var/lib/linkops/keys
+known_hosts_path = /var/lib/linkops/ssh/known_hosts
+
+# Connection timeouts (in seconds)
+connection_timeout = 30
+command_timeout = 300
+
+# Retry settings
+max_retries = 3
+retry_delay = 5
+
+[security]
+# Authentication security
+max_failed_attempts = 5
+lockout_duration_minutes = 5
+
+# Enrollment enforcement
+enrollment_required = true
+
+# Password hashing (bcrypt)
+bcrypt_rounds = 12
+
+[operations]
+# Operation execution settings
+default_concurrency = 5
+max_concurrency = 20
+
+# Script execution timeout (in seconds)
+script_timeout = 300
+
+# Output buffer size (in bytes)
+output_buffer_size = 1048576
+
+[terminal]
+# Terminal session settings
+max_workspaces = 100
+max_panes_per_workspace = 4
+
+# WebSocket settings
+websocket_timeout = 3600
+websocket_ping_interval = 30
+
+[health]
+# Health monitoring settings
+check_interval_minutes = 5
+check_timeout = 10
+
+# Latency thresholds (in milliseconds)
+latency_warning = 100
+latency_critical = 500
+
+[logging]
+# Logging configuration
+level = INFO
+path = /var/log/linkops/api.log
+
+# Log rotation
+max_size_mb = 100
+backup_count = 5
+
+# Log format
+format = json
+
+# Debug mode (set to false in production)
+debug = false
+
+[performance]
+# Performance tuning
+worker_processes = 4
+worker_connections = 1000
+
+# Request limits
+max_request_size = 10485760
+request_timeout = 60
+
+# Cache settings
+cache_ttl = 300

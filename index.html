@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkOps - Overview</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/overview.css">
+    <link rel="stylesheet" href="css/links.css">
+    <link rel="stylesheet" href="css/operations.css">
+    <link rel="stylesheet" href="css/terminal.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="app-container">
+        
+        <!-- Top Navigation Bar -->
+        <header class="top-bar">
+            <div class="top-bar-left">
+                <img src="assets/branding/linkops_icon_gray.svg" alt="LinkOps" class="app-icon">
+                <span class="app-title">LinkOps</span>
+            </div>
+            
+            <div class="top-bar-right">
+                <div class="theme-selector">
+                    <button class="theme-btn" data-theme="gray" title="Gray Fabric">
+                        <span class="theme-swatch gray-swatch"></span>
+                    </button>
+                    <button class="theme-btn" data-theme="blue" title="Blue Fabric">
+                        <span class="theme-swatch blue-swatch"></span>
+                    </button>
+                    <button class="theme-btn" data-theme="leather" title="Charcoal Leather">
+                        <span class="theme-swatch leather-swatch"></span>
+                    </button>
+                </div>
+                <div class="git-status">
+                    <span class="git-indicator"></span>
+                    <span class="git-text">Git Synced</span>
+                </div>
+                <div class="user-menu">
+                    <span class="user-name">Admin</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-navigation">
+            <button class="tab-button active" data-tab="overview">OVERVIEW</button>
+            <button class="tab-button" data-tab="links">LINKS</button>
+            <button class="tab-button" data-tab="operations">OPERATIONS</button>
+            <button class="tab-button" data-tab="terminal">TERMINAL</button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            
+            <!-- Overview Tab Content -->
+            <div class="tab-content active" id="overview-tab">
+                
+                <!-- Top Section: Two Column Layout -->
+                <div class="overview-grid">
+                    
+                    <!-- Infrastructure Summary Card -->
+                    <div class="card infrastructure-card">
+                        <div class="card-header">
+                            <h2 class="card-title">Infrastructure</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="infra-item">
+                                <div class="infra-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <rect x="2" y="3" width="16" height="3" rx="1" fill="currentColor" opacity="0.8"/>
+                                        <rect x="2" y="8" width="16" height="3" rx="1" fill="currentColor" opacity="0.8"/>
+                                        <rect x="2" y="13" width="16" height="3" rx="1" fill="currentColor" opacity="0.8"/>
+                                    </svg>
+                                </div>
+                                <div class="infra-details">
+                                    <span class="infra-label">VPS</span>
+                                    <span class="infra-count">2</span>
+                                </div>
+                            </div>
+                            
+                            <div class="infra-item">
+                                <div class="infra-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                        <circle cx="10" cy="10" r="3" fill="currentColor" opacity="0.6"/>
+                                    </svg>
+                                </div>
+                                <div class="infra-details">
+                                    <span class="infra-label">Proxmox Cluster</span>
+                                    <span class="infra-count">1</span>
+                                </div>
+                            </div>
+                            
+                            <div class="infra-item">
+                                <div class="infra-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <rect x="4" y="4" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                        <path d="M7 8h6M7 10h6M7 12h4" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                                    </svg>
+                                </div>
+                                <div class="infra-details">
+                                    <span class="infra-label">Virtual Machines</span>
+                                    <span class="infra-count">7</span>
+                                </div>
+                            </div>
+                            
+                            <div class="infra-summary">
+                                <div class="summary-item">
+                                    <span class="summary-label">Total Links</span>
+                                    <span class="summary-value">10</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Enrolled</span>
+                                    <span class="summary-value success">10</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Reachable</span>
+                                    <span class="summary-value success">10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity Card -->
+                    <div class="card activity-card">
+                        <div class="card-header">
+                            <h2 class="card-title">Recent Activity</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon success">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-details">
+                                        <div class="activity-title">baseline → prod/web</div>
+                                        <div class="activity-meta">2 minutes ago</div>
+                                    </div>
+                                    <div class="activity-status success">Success</div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon success">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                            <path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.5"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-details">
+                                        <div class="activity-title">SSH → vm-ubuntu-db-01</div>
+                                        <div class="activity-meta">8 minutes ago</div>
+                                    </div>
+                                    <div class="activity-status success">Connected</div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon success">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-details">
+                                        <div class="activity-title">security_audit → staging</div>
+                                        <div class="activity-meta">15 minutes ago</div>
+                                    </div>
+                                    <div class="activity-status success">Success</div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon warning">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M8 3v6M8 11v1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-details">
+                                        <div class="activity-title">patch_check → vm-alpine-docker-01</div>
+                                        <div class="activity-meta">32 minutes ago</div>
+                                    </div>
+                                    <div class="activity-status warning">Warning</div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon success">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                            <path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.5"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-details">
+                                        <div class="activity-title">SSH → proxmox-cluster-01</div>
+                                        <div class="activity-meta">1 hour ago</div>
+                                    </div>
+                                    <div class="activity-status success">Connected</div>
+                                </div>
+                            </div>
+                            
+                            <button class="view-all-btn">View All Activity →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Link Health Table -->
+                <div class="card health-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Link Health</h2>
+                        <div class="card-actions">
+                            <button class="icon-btn" title="Refresh">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M14 8c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6c1.657 0 3.157.672 4.243 1.757M14 2v4h-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-container">
+                            <table class="health-table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-status"></th>
+                                        <th class="col-name">Name</th>
+                                        <th class="col-type">Type</th>
+                                        <th class="col-enrolled">Enrolled</th>
+                                        <th class="col-ssh">SSH</th>
+                                        <th class="col-latency">Latency</th>
+                                        <th class="col-last-seen">Last Seen</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="healthTableBody">
+                                    <!-- Populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Links Tab Content (Placeholder) -->
+            <div class="tab-content" id="links-tab">
+                
+                <!-- Links Header -->
+                <div class="links-header">
+                    <h1 class="page-title">Links</h1>
+                    <div class="links-actions">
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="table" title="Table View">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="3" width="12" height="2" rx="0.5" fill="currentColor"/>
+                                    <rect x="2" y="7" width="12" height="2" rx="0.5" fill="currentColor"/>
+                                    <rect x="2" y="11" width="12" height="2" rx="0.5" fill="currentColor"/>
+                                </svg>
+                                <span>Table</span>
+                            </button>
+                            <button class="view-btn" data-view="topology" title="Topology View">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <circle cx="8" cy="3" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <circle cx="3" cy="13" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <circle cx="13" cy="13" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M7 5L4 11M9 5L12 11" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <span>Topology</span>
+                            </button>
+                        </div>
+                        <button class="icon-btn" title="Refresh">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M14 8c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6c1.657 0 3.157.672 4.243 1.757M14 2v4h-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="primary-btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Add Link
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Table View -->
+                <div class="links-view active" id="table-view">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="filters-bar">
+                                <div class="filter-group">
+                                    <label>Type</label>
+                                    <select class="filter-select">
+                                        <option value="">All Types</option>
+                                        <option value="vps">VPS</option>
+                                        <option value="proxmox">Proxmox</option>
+                                        <option value="vm">VM</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>Status</label>
+                                    <select class="filter-select">
+                                        <option value="">All Status</option>
+                                        <option value="online">Online</option>
+                                        <option value="offline">Offline</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>Enrollment</label>
+                                    <select class="filter-select">
+                                        <option value="">All</option>
+                                        <option value="enrolled">Enrolled</option>
+                                        <option value="unenrolled">Unenrolled</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group search-group">
+                                    <input type="text" class="search-input" placeholder="Search links..." id="linksSearch">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table class="links-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-status"></th>
+                                            <th class="col-name">Name</th>
+                                            <th class="col-type">Type</th>
+                                            <th class="col-provider">Provider</th>
+                                            <th class="col-enrollment">Enrollment ID</th>
+                                            <th class="col-ssh">SSH</th>
+                                            <th class="col-latency">Latency</th>
+                                            <th class="col-last-seen">Last Seen</th>
+                                            <th class="col-actions">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="linksTableBody">
+                                        <!-- Populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topology View -->
+                <div class="links-view" id="topology-view">
+                    <div class="card topology-card">
+                        <div class="card-body">
+                            <div class="topology-container" id="topologyContainer">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Operations Tab Content -->
+            <div class="tab-content" id="operations-tab">
+                
+                <!-- Operations Header -->
+                <div class="operations-header">
+                    <h1 class="page-title">Operations</h1>
+                    <div class="operations-actions">
+                        <button class="icon-btn" title="Refresh">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M14 8c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6c1.657 0 3.157.672 4.243 1.757M14 2v4h-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Operations Content - 3 Sections -->
+                <div class="operations-layout">
+                    
+                    <!-- Section 1: Operations History -->
+                    <div class="operations-section">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Operations</h2>
+                                <div class="status-toggle-small">
+                                    <button class="status-btn-small" data-status="history">History</button>
+                                    <button class="status-btn-small active" data-status="active">Active</button>
+                                </div>
+                            </div>
+                            <div class="card-body operations-list-body">
+                                <div class="operations-list" id="operationsList">
+                                    <!-- Populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Script Execution -->
+                    <div class="operations-section">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Script Execution</h2>
+                            </div>
+                            <div class="card-body">
+                                <form class="execution-form" id="executionForm">
+                                    
+                                    <!-- Scripts Selection -->
+                                    <div class="form-section">
+                                        <label class="form-label">Scripts (Select 1-10)</label>
+                                        <div class="multi-select-container" id="scriptsContainer">
+                                            <!-- Populated by JavaScript -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Flags Selection -->
+                                    <div class="form-section">
+                                        <label class="form-label">Flags</label>
+                                        <div class="flags-container" id="flagsContainer">
+                                            <div class="empty-message">Select a script to see available flags</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Targets Selection -->
+                                    <div class="form-section">
+                                        <label class="form-label">Targets</label>
+                                        <div class="targets-grid" id="targetsGrid">
+                                            <!-- Populated by JavaScript -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Run Button -->
+                                    <button type="submit" class="primary-btn run-btn">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M5 3l6 5-6 5V3z" fill="currentColor"/>
+                                        </svg>
+                                        Run Script
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Connection Output -->
+                    <div class="operations-section">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Connection Output</h2>
+                                <div class="card-actions">
+                                    <button class="icon-btn" title="Clear Output" id="clearOutputBtn">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body terminal-body">
+                                <div class="terminal-output" id="terminalOutput">
+                                    <div class="terminal-line muted">Ready to execute scripts...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Terminal Tab Content -->
+            <div class="tab-content" id="terminal-tab">
+                
+                <!-- Terminal Header -->
+                <div class="terminal-header">
+                    <h1 class="page-title">Terminal</h1>
+                    <div class="terminal-actions">
+                        <div class="layout-selector">
+                            <button class="layout-btn active" data-layout="1" title="Single Terminal">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                </svg>
+                            </button>
+                            <button class="layout-btn" data-layout="2" title="Split Horizontal">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <rect x="2" y="2" width="7" height="16" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <rect x="11" y="2" width="7" height="16" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                </svg>
+                            </button>
+                            <button class="layout-btn" data-layout="3" title="Three Panes">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <rect x="2" y="2" width="7" height="16" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <rect x="11" y="2" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <rect x="11" y="11" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                </svg>
+                            </button>
+                            <button class="layout-btn" data-layout="4" title="Four Panes (2x2)">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <rect x="2" y="2" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <rect x="11" y="2" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <rect x="2" y="11" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <rect x="11" y="11" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <button class="primary-btn" id="connectAllBtn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Connect All
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Terminal Workspace -->
+                <div class="terminal-workspace" id="terminalWorkspace">
+                    <!-- Panes will be dynamically created here -->
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <img src="assets/branding/sns_net_solutions_gray.svg" alt="SnS Network Solutions" class="footer-logo" id="footerLogo">
+                <span class="footer-text">© 2025 SnS Network Solutions. All rights reserved.</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/overview.js"></script>
+    <script src="js/links.js"></script>
+    <script src="js/operations.js"></script>
+    <script src="js/terminal.js"></script>
+</body>
+</html>

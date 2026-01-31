@@ -1,0 +1,429 @@
+/* ============================================
+   LinkOps - Overview Tab Styles
+   ============================================ */
+
+/* Overview Grid Layout */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ============================================
+   Infrastructure Card
+   ============================================ */
+
+.infrastructure-card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.infra-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.infra-item:hover {
+    background: var(--bg-hover);
+}
+
+.infra-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(122, 159, 216, 0.08);
+    border: 1px solid rgba(122, 159, 216, 0.15);
+    border-radius: 6px;
+    color: var(--accent-primary);
+}
+
+.infra-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.infra-label {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.infra-count {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+}
+
+/* Infrastructure Summary */
+.infra-summary {
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.summary-label {
+    color: var(--text-secondary);
+}
+
+.summary-value {
+    font-weight: 600;
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+}
+
+.summary-value.success {
+    color: var(--success-color);
+}
+
+.summary-value.warning {
+    color: var(--warning-color);
+}
+
+.summary-value.error {
+    color: var(--error-color);
+}
+
+/* ============================================
+   Recent Activity Card
+   ============================================ */
+
+.activity-card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.activity-item:hover {
+    background: var(--bg-hover);
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.activity-icon.success {
+    background: rgba(74, 222, 128, 0.08);
+    border: 1px solid rgba(74, 222, 128, 0.15);
+    color: var(--success-color);
+}
+
+.activity-icon.warning {
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.15);
+    color: var(--warning-color);
+}
+
+.activity-icon.error {
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid rgba(248, 113, 113, 0.15);
+    color: var(--error-color);
+}
+
+.activity-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-title {
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.activity-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.activity-status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.activity-status.success {
+    color: var(--success-color);
+    background: rgba(74, 222, 128, 0.08);
+}
+
+.activity-status.warning {
+    color: var(--warning-color);
+    background: rgba(251, 191, 36, 0.08);
+}
+
+.activity-status.error {
+    color: var(--error-color);
+    background: rgba(248, 113, 113, 0.08);
+}
+
+/* View All Button */
+.view-all-btn {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-all-btn:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+    background: var(--bg-hover);
+}
+
+/* ============================================
+   Link Health Table
+   ============================================ */
+
+.health-card {
+    margin-top: var(--spacing-lg);
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.health-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.health-table thead {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.health-table th {
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.health-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s ease;
+}
+
+.health-table tbody tr:hover {
+    background: var(--bg-hover);
+}
+
+.health-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.health-table td {
+    padding: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+/* Table Columns */
+.col-status {
+    width: 40px;
+}
+
+.col-name {
+    min-width: 200px;
+}
+
+.col-type {
+    width: 120px;
+}
+
+.col-enrolled,
+.col-ssh {
+    width: 100px;
+}
+
+.col-latency {
+    width: 100px;
+}
+
+.col-last-seen {
+    width: 140px;
+}
+
+/* Status Indicator */
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-indicator.success {
+    background: var(--success-color);
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+}
+
+.status-indicator.warning {
+    background: var(--warning-color);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+.status-indicator.error {
+    background: var(--error-color);
+    box-shadow: 0 0 10px rgba(248, 113, 113, 0.5);
+}
+
+/* Machine Name with Icon */
+.machine-name {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.machine-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.machine-label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Machine Type Badge */
+.machine-type {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    background: rgba(122, 159, 216, 0.08);
+    border: 1px solid rgba(122, 159, 216, 0.15);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-badge.success {
+    color: var(--success-color);
+}
+
+.status-badge.warning {
+    color: var(--warning-color);
+}
+
+.status-badge.error {
+    color: var(--error-color);
+}
+
+/* Latency Display */
+.latency {
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+}
+
+.latency.good {
+    color: var(--success-color);
+}
+
+.latency.medium {
+    color: var(--warning-color);
+}
+
+.latency.poor {
+    color: var(--error-color);
+}
+
+/* Last Seen */
+.last-seen {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .health-table {
+        font-size: 12px;
+    }
+    
+    .health-table th,
+    .health-table td {
+        padding: var(--spacing-sm);
+    }
+    
+    .col-latency,
+    .col-last-seen {
+        display: none;
+    }
+}

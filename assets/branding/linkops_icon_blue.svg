@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="linkBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5EA8D8"/>
+      <stop offset="50%" style="stop-color:#8EC8F0"/>
+      <stop offset="100%" style="stop-color:#5EA8D8"/>
+    </linearGradient>
+    
+    <linearGradient id="opsBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#A8D4F0"/>
+      <stop offset="100%" style="stop-color:#7EB8E3"/>
+    </linearGradient>
+    
+    <filter id="linkGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <g transform="translate(6, 16)">
+    <!-- First chain link -->
+    <rect x="0" y="8" width="32" height="24" rx="12" ry="12" 
+          fill="none" 
+          stroke="url(#linkBlue)" 
+          stroke-width="4"
+          filter="url(#linkGlow)"/>
+    
+    <!-- Second chain link (overlapping) -->
+    <rect x="20" y="8" width="32" height="24" rx="12" ry="12" 
+          fill="none" 
+          stroke="url(#opsBlue)" 
+          stroke-width="4"
+          filter="url(#linkGlow)"/>
+    
+    <!-- Connection highlight -->
+    <circle cx="36" cy="20" r="4" fill="#A8D4F0"/>
+  </g>
+</svg>

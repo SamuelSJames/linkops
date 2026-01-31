@@ -1,0 +1,48 @@
+[Unit]
+Description=LinkOps Backend API Service
+Documentation=https://github.com/sns-network/linkops
+After=network.target
+
+[Service]
+Type=simple
+User=linkops
+Group=linkops
+WorkingDirectory=/opt/linkops
+
+# Environment
+Environment="PATH=/opt/linkops/venv/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONUNBUFFERED=1"
+
+# Start command
+ExecStart=/opt/linkops/venv/bin/uvicorn backend.main:app \
+    --host 0.0.0.0 \
+    --port 8000 \
+    --workers 4 \
+    --log-level info \
+    --access-log \
+    --use-colors
+
+# Restart policy
+Restart=always
+RestartSec=10
+StartLimitInterval=200
+StartLimitBurst=5
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/linkops /var/log/linkops
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=4096
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=linkopsd
+
+[Install]
+WantedBy=multi-user.target

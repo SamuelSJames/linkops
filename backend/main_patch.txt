@@ -1,0 +1,15 @@
+# Add these lines to main.py
+
+# After line: from api import auth, links, operations, git_api, tables, terminal
+# Add:
+from api import onboarding
+
+# After line: auth_service = AuthService(...)
+# Add inside startup_event function:
+    # Initialize onboarding JWT secret
+    from api.onboarding import init_jwt_secret
+    init_jwt_secret(config.jwt_secret)
+
+# After line: app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
+# Add:
+app.include_router(onboarding.router, tags=["onboarding"])

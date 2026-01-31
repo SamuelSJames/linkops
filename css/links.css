@@ -1,0 +1,526 @@
+/* ============================================
+   LinkOps - Links Tab Styles
+   ============================================ */
+
+/* Links Header */
+.links-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.links-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+/* View Toggle */
+.view-toggle {
+    display: flex;
+    gap: var(--spacing-xs);
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 4px;
+    box-shadow: 
+        0 0 0 1px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.view-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 8px 12px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-btn:hover {
+    color: var(--text-primary);
+    background: var(--bg-hover);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.view-btn.active {
+    color: var(--accent-primary);
+    background: var(--bg-active);
+    border-color: var(--accent-primary);
+    box-shadow: 
+        0 0 12px rgba(122, 159, 216, 0.4),
+        inset 0 1px 0 rgba(122, 159, 216, 0.2);
+}
+
+.view-btn svg {
+    flex-shrink: 0;
+}
+
+/* Primary Button */
+.primary-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 10px 16px;
+    background: var(--accent-primary);
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.primary-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(122, 159, 216, 0.3);
+}
+
+.primary-btn:active {
+    transform: translateY(0);
+}
+
+/* Links Views */
+.links-view {
+    display: none;
+}
+
+.links-view.active {
+    display: block;
+}
+
+/* ============================================
+   Filters Bar
+   ============================================ */
+
+.filters-bar {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.filter-group label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.filter-select {
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 140px;
+}
+
+.filter-select option {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 8px;
+}
+
+.filter-select:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-hover);
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--border-focus);
+}
+
+.search-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: var(--font-primary);
+    transition: all 0.2s ease;
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-input:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-hover);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--border-focus);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* ============================================
+   Links Table
+   ============================================ */
+
+.links-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.links-table thead {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.links-table th {
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.links-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s ease;
+    cursor: pointer;
+}
+
+.links-table tbody tr:hover {
+    background: var(--bg-hover);
+}
+
+.links-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.links-table td {
+    padding: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+/* Table Columns */
+.col-status {
+    width: 40px;
+}
+
+.col-name {
+    min-width: 200px;
+}
+
+.col-type {
+    width: 100px;
+}
+
+.col-provider {
+    width: 120px;
+}
+
+.col-enrollment {
+    min-width: 280px;
+}
+
+.col-ssh {
+    width: 80px;
+}
+
+.col-latency {
+    width: 100px;
+}
+
+.col-last-seen {
+    width: 140px;
+}
+
+.col-actions {
+    width: 120px;
+}
+
+/* Enrollment ID Display */
+.enrollment-id {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.action-btn {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+    background: var(--bg-hover);
+}
+
+.action-btn.terminal-btn:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.action-btn.ssh-btn:hover {
+    color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+/* ============================================
+   Topology View
+   ============================================ */
+
+.topology-card {
+    min-height: 600px;
+}
+
+.topology-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+/* Topology Nodes */
+.topology-node {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.topology-node:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.node-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.topology-node:hover .node-icon-wrapper {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 20px rgba(122, 159, 216, 0.3);
+}
+
+.node-icon-wrapper img {
+    width: 40px;
+    height: 40px;
+}
+
+.node-status-dot {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-card);
+}
+
+.node-status-dot.online {
+    background: var(--success-color);
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+}
+
+.node-status-dot.offline {
+    background: var(--error-color);
+    box-shadow: 0 0 8px rgba(248, 113, 113, 0.5);
+}
+
+.node-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-align: center;
+    background: var(--bg-card);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(8px);
+    white-space: nowrap;
+}
+
+/* Topology Connections */
+.topology-connection {
+    position: absolute;
+    pointer-events: none;
+}
+
+.connection-line {
+    stroke: var(--border-color);
+    stroke-width: 2;
+    fill: none;
+    transition: stroke 0.2s ease;
+}
+
+.topology-node:hover ~ .topology-connection .connection-line,
+.topology-connection:hover .connection-line {
+    stroke: var(--accent-primary);
+    stroke-width: 3;
+}
+
+/* Topology Legend */
+.topology-legend {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    backdrop-filter: blur(8px);
+}
+
+.legend-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.legend-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .filters-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group,
+    .search-group {
+        width: 100%;
+    }
+    
+    .filter-select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .links-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .links-actions {
+        flex-wrap: wrap;
+    }
+    
+    .view-toggle {
+        flex: 1;
+    }
+    
+    .links-table {
+        font-size: 12px;
+    }
+    
+    .links-table th,
+    .links-table td {
+        padding: var(--spacing-sm);
+    }
+    
+    .col-provider,
+    .col-latency,
+    .col-last-seen {
+        display: none;
+    }
+    
+    .topology-container {
+        height: 400px;
+    }
+}

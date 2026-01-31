@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 90">
+  <defs>
+    <linearGradient id="linkGray" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A0B0C0"/>
+      <stop offset="50%" style="stop-color:#C8D8E8"/>
+      <stop offset="100%" style="stop-color:#A0B0C0"/>
+    </linearGradient>
+    
+    <linearGradient id="opsGray" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D4DEE8"/>
+      <stop offset="100%" style="stop-color:#B8C4D0"/>
+    </linearGradient>
+    
+    <filter id="linkGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <g transform="translate(15, 12)">
+    <!-- Chain link icon -->
+    <g transform="translate(0, 18)">
+      <!-- First link -->
+      <rect x="0" y="8" width="28" height="20" rx="10" ry="10" 
+            fill="none" 
+            stroke="url(#linkGray)" 
+            stroke-width="3"
+            filter="url(#linkGlow)"/>
+      
+      <!-- Second link (overlapping) -->
+      <rect x="18" y="8" width="28" height="20" rx="10" ry="10" 
+            fill="none" 
+            stroke="url(#opsGray)" 
+            stroke-width="3"
+            filter="url(#linkGlow)"/>
+      
+      <!-- Connection highlight -->
+      <circle cx="32" cy="18" r="3" fill="#D4DEE8" opacity="0.8"/>
+    </g>
+    
+    <!-- "Link" text -->
+    <g transform="translate(58, 0)">
+      <text x="0" y="48" 
+            font-family="'Segoe UI', 'SF Pro Display', system-ui" 
+            font-size="42" 
+            font-weight="600"
+            fill="url(#linkGray)"
+            filter="url(#linkGlow)">Link</text>
+    </g>
+    
+    <!-- "Ops" text -->
+    <g transform="translate(142, 0)">
+      <text x="0" y="48" 
+            font-family="'Segoe UI', 'SF Pro Display', system-ui" 
+            font-size="42" 
+            font-weight="300"
+            fill="#9CAABA">Ops</text>
+    </g>
+    
+    <!-- Tagline -->
+    <text x="58" y="65" 
+          font-family="'Segoe UI', 'SF Pro Display', system-ui" 
+          font-size="9" 
+          font-weight="400"
+          letter-spacing="4"
+          fill="#8A9CAC"
+          opacity="0.9">CONNECTED OPERATIONS</text>
+  </g>
+</svg>

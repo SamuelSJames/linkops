@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkOps - Create Account</title>
+    <link rel="stylesheet" href="css/onboarding.css">
+</head>
+<body>
+    <div class="onboarding-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-step active">
+                <div class="step-circle">1</div>
+                <div class="step-label">Account</div>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step">
+                <div class="step-circle">2</div>
+                <div class="step-label">Git Setup</div>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step">
+                <div class="step-circle">3</div>
+                <div class="step-label">First Machine</div>
+            </div>
+        </div>
+
+        <!-- Onboarding Panel -->
+        <div class="onboarding-panel">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="assets/branding/linkops_gray.svg" alt="LinkOps" class="linkops-logo">
+            </div>
+
+            <!-- Form Header -->
+            <div class="form-header">
+                <h1 class="form-title">Create Your Account</h1>
+                <p class="form-subtitle">Get started with LinkOps infrastructure management</p>
+            </div>
+
+            <!-- Registration Form -->
+            <form class="onboarding-form" id="registrationForm">
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="you@company.com"
+                        required
+                        autocomplete="email"
+                    >
+                    <span class="field-error" id="emailError"></span>
+                </div>
+
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="username">Username *</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="johndoe"
+                        required
+                        autocomplete="username"
+                        pattern="[a-zA-Z0-9_\-]{3,20}"
+                    >
+                    <span class="field-hint">3-20 characters, letters, numbers, dash, underscore</span>
+                    <span class="field-error" id="usernameError"></span>
+                </div>
+
+                <!-- First Name -->
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input 
+                        type="text" 
+                        id="firstName" 
+                        name="firstName" 
+                        placeholder="John"
+                        required
+                        autocomplete="given-name"
+                    >
+                    <span class="field-error" id="firstNameError"></span>
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input 
+                        type="text" 
+                        id="lastName" 
+                        name="lastName" 
+                        placeholder="Doe"
+                        autocomplete="family-name"
+                    >
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <div class="password-input-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="••••••••••••"
+                            required
+                            autocomplete="new-password"
+                        >
+                        <button type="button" class="password-toggle" id="passwordToggle">
+                            <span class="eye-icon">👁</span>
+                        </button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="strength-bar">
+                            <div class="strength-fill"></div>
+                        </div>
+                        <span class="strength-text">Weak</span>
+                    </div>
+                    <span class="field-hint">Minimum 12 characters with uppercase, lowercase, number, and special character</span>
+                    <span class="field-error" id="passwordError"></span>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password *</label>
+                    <div class="password-input-wrapper">
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword" 
+                            placeholder="••••••••••••"
+                            required
+                            autocomplete="new-password"
+                        >
+                        <button type="button" class="password-toggle" id="confirmPasswordToggle">
+                            <span class="eye-icon">👁</span>
+                        </button>
+                    </div>
+                    <span class="field-error" id="confirmPasswordError"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="primary-button">
+                    <span class="button-text">Create Account</span>
+                    <span class="button-icon">→</span>
+                </button>
+            </form>
+
+            <!-- Footer -->
+            <div class="form-footer">
+                <p class="footer-text">Already have an account? <a href="login.html" class="footer-link">Login</a></p>
+            </div>
+        </div>
+
+        <!-- Branding Footer -->
+        <div class="branding-footer">
+            <img src="assets/branding/sns_net_solutions_gray.svg" alt="SnS Network Solutions" class="sns-logo">
+        </div>
+    </div>
+
+    <script src="js/onboarding-step1.js"></script>
+</body>
+</html>
